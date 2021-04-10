@@ -4,7 +4,7 @@ from .models import Orders, Payments, Shippings, Users
 
 class Orders_serializer(serializers.HyperlinkedModelSerializer):
     # To incluide the FK from another table
-    user = serializers.ReadOnlyField(source='user.name')
+    user = serializers.ReadOnlyField(source='user.user_id')
     class Meta:
         model = Orders
         fields = ('order_id', 'date', 'total', 'subtotal', 'taxes', 'paid', 'user')
